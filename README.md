@@ -157,3 +157,8 @@ MIT License - feel free to use and modify as needed.
 ## Support
 
 For issues or feature requests, please create an issue on the GitHub repository. 
+
+## Next Steps
+- [] Make it intelligent to detect if there are nested items in the json to detect which table you want. (e.g: [{lender: XXX, IBAN:XXX, transactions:[], lender: YYY...}]
+- [] Create Icon
+- [] Update UX to make it smoother
