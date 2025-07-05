@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Test Page - JSON to Table Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .json-block {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .instructions {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSON to Table Converter - Test Page</h1>
+    
+    <div class="instructions">
+        <h2>How to Test the Extension</h2>
+        <ol>
+            <li>Install the JSON to Table Converter extension</li>
+            <li>Click the extension icon in your browser toolbar</li>
+            <li>Click "Detect JSON from Page"</li>
+            <li>The extension should find and load one of the JSON blocks below</li>
+            <li>Try different conversion options and copy the result</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Case 1: Employee Data (Script Tag)</h3>
+        <p>This JSON is embedded in a script tag with type="application/json":</p>
+        <script type="application/json">
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "department": "Engineering",
+      "salary": 85000,
+      "skills": ["React", "Node.js", "TypeScript"],
+      "location": {
+        "office": "San Francisco",
+        "remote": false
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "department": "Design",
+      "salary": 70000,
+      "skills": ["Figma", "Sketch", "Prototyping"],
+      "location": {
+        "office": "New York",
+        "remote": true
+      }
+    },
+    {
+      "id": 3,
+      "name": "Carol Davis",
+      "department": "Marketing",
+      "salary": 65000,
+      "skills": ["SEO", "Content Strategy", "Analytics"],
+      "location": {
+        "office": "Austin",
+        "remote": false
+      }
+    }
+  ]
+}
+        </script>
+        <div class="json-block">
+            <em>JSON embedded in script tag (not visible but detectable by extension)</em>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Case 2: Product Data (Pre Tag)</h3>
+        <p>This JSON is in a pre tag (common for API documentation):</p>
+        <pre>{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Wireless Headphones",
+      "price": 199.99,
+      "category": "Electronics",
+      "inStock": true,
+      "specs": {
+        "brand": "TechBrand",
+        "model": "WH-1000",
+        "wireless": true,
+        "batteryLife": "30 hours"
+      },
+      "reviews": {
+        "average": 4.5,
+        "count": 127
+      }
+    },
+    {
+      "id": "prod_002",
+      "name": "Smartphone",
+      "price": 699.99,
+      "category": "Electronics",
+      "inStock": false,
+      "specs": {
+        "brand": "PhoneCorp",
+        "model": "X-Pro",
+        "wireless": true,
+        "storage": "128GB"
+      },
+      "reviews": {
+        "average": 4.2,
+        "count": 89
+      }
+    }
+  ]
+}</pre>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Case 3: Simple Data (Code Block)</h3>
+        <p>This JSON is in a code block:</p>
+        <code>
+{
+  "users": [
+    {"name": "John", "age": 25, "city": "Boston"},
+    {"name": "Jane", "age": 30, "city": "Seattle"},
+    {"name": "Mike", "age": 35, "city": "Denver"}
+  ]
+}
+        </code>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Case 4: API Response Example</h3>
+        <p>Example API response format:</p>
+        <pre>{
+  "status": "success",
+  "data": {
+    "orders": [
+      {
+        "orderId": "ORD-2024-001",
+        "customerId": "CUST-456",
+        "orderDate": "2024-01-15",
+        "totalAmount": 299.99,
+        "items": [
+          {
+            "productId": "PROD-123",
+            "quantity": 2,
+            "price": 149.99
+          }
+        ],
+        "shipping": {
+          "method": "standard",
+          "cost": 0,
+          "address": {
+            "street": "123 Main St",
+            "city": "Anytown",
+            "state": "CA",
+            "zip": "12345"
+          }
+        }
+      }
+    ]
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 1
+  }
+}</pre>
+    </div>
+
+    <div class="test-section">
+        <h3>Manual Testing</h3>
+        <p>You can also copy any of the JSON examples above and paste them directly into the extension popup to test the conversion functionality.</p>
+        
+        <h4>Expected Results:</h4>
+        <ul>
+            <li><strong>With headers enabled:</strong> First row contains column names</li>
+            <li><strong>With flattening enabled:</strong> Nested objects become separate columns (e.g., "location.office")</li>
+            <li><strong>Tab delimiter:</strong> Ready for pasting into Excel/Google Sheets</li>
+            <li><strong>CSV delimiter:</strong> Traditional comma-separated format</li>
+        </ul>
+    </div>
+
+    <script>
+        // This script won't be detected as JSON since it's actual JavaScript
+        console.log('Test page loaded successfully');
+        
+        // But this JSON comment block might be detected by more aggressive patterns
+        /*
+        {
+          "comment": "This is JSON in a comment block",
+          "detected": false,
+          "reason": "Comments are typically ignored"
+        }
+        */
+    </script>
+</body>
+</html> 

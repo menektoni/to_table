@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to Table Converter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JSON to Table Converter</h1>
+        
+        <div class="input-section">
+            <label for="json-input">Paste your JSON here:</label>
+            <textarea id="json-input" placeholder='{"name": "John", "age": 30, "city": "New York"}'></textarea>
+        </div>
+
+        <div class="options-section">
+            <h3>Options</h3>
+            <div class="option">
+                <input type="checkbox" id="include-headers" checked>
+                <label for="include-headers">Include headers</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="flatten-nested" checked>
+                <label for="flatten-nested">Flatten nested objects</label>
+            </div>
+            <div class="option">
+                <label for="delimiter">Delimiter:</label>
+                <select id="delimiter">
+                    <option value="tab">Tab (Excel/Sheets)</option>
+                    <option value="comma">Comma (CSV)</option>
+                    <option value="pipe">Pipe (|)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="convert-btn" class="primary-btn">Convert & Copy</button>
+            <button id="preview-btn" class="secondary-btn">Preview</button>
+            <button id="detect-json-btn" class="secondary-btn">Detect JSON from Page</button>
+        </div>
+
+        <div class="preview-section" id="preview-section" style="display: none;">
+            <h3>Preview</h3>
+            <div id="preview-content"></div>
+        </div>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html> 

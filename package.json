@@ -1,0 +1,13 @@
+{
+  "name": "json-to-table-extension",
+  "version": "1.0.0",
+  "description": "Browser extension to convert JSON to table format and copy to clipboard",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+} 

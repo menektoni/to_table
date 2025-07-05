@@ -1,0 +1,44 @@
+[
+  {
+    "name": "John Doe",
+    "age": 30,
+    "email": "john@example.com",
+    "department": "Engineering",
+    "address": {
+      "street": "123 Main St",
+      "city": "New York",
+      "zipCode": "10001"
+    },
+    "skills": ["JavaScript", "Python", "React"],
+    "isActive": true,
+    "salary": 75000
+  },
+  {
+    "name": "Jane Smith",
+    "age": 28,
+    "email": "jane@example.com",
+    "department": "Marketing",
+    "address": {
+      "street": "456 Oak Ave",
+      "city": "Los Angeles",
+      "zipCode": "90210"
+    },
+    "skills": ["Social Media", "Content Creation", "Analytics"],
+    "isActive": true,
+    "salary": 65000
+  },
+  {
+    "name": "Bob Johnson",
+    "age": 35,
+    "email": "bob@example.com",
+    "department": "Sales",
+    "address": {
+      "street": "789 Pine Rd",
+      "city": "Chicago",
+      "zipCode": "60601"
+    },
+    "skills": ["Negotiation", "CRM", "Lead Generation"],
+    "isActive": false,
+    "salary": 80000
+  }
+] 
